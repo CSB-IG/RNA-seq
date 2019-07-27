@@ -20,6 +20,7 @@ The data follows this directory structure
 |--Data
 |     | - Raw
 |     |     |- md5.txt
+|     |     |- metadata.txt
 |     |     |-> Manifest
 |     |     |    |- Experimental_Condition_1.manifest
 |     |     |    |- Experimental_Condition_1.manifest
@@ -39,6 +40,7 @@ The data follows this directory structure
 ```
 
 - The md5.txt contains the md5 data for each file.
+- The metadata.txt file contains all metadata for each sample.
 - The Manifest folder contains the respective sample metadata in a tab separeted format.
 - The Experimental-Condition-X folder contains the respective htseq.counts data files. For example:
 ``` 
