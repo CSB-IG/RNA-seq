@@ -18,31 +18,32 @@ The data follows this directory structure
 ```
 The data follows this directory structure
 |--Data
-     | - Raw
-          |- md5.txt
-          |-> Manifest
-          |    |- Experimental_Condition_1.manifest
-          |    |- Experimental_Condition_1.manifest
-          |    ...
-          |    |- Experimental_Condition_N.manifest
-          |-> Experimental_Condition_1
-          |    |- ID_bla-bla.htseq.counts
-          |-> Experimental_Condition_2
-          |    |- ID_bla-bla.htseq.counts
-          |...
-          |-> Experimental_Condition_N
-              |- ID_bla-bla.htseq.counts
+|     | - Raw
+|     |     |- md5.txt
+|     |     |-> Manifest
+|     |     |    |- Experimental_Condition_1.manifest
+|     |     |    |- Experimental_Condition_1.manifest
+|     |     |    ...
+|     |     |    |- Experimental_Condition_N.manifest
+|     |     |-> Experimental_Condition_1
+|     |     |    |- ID_bla-bla.htseq.counts
+|     |     |-> Experimental_Condition_2
+|     |     |    |- ID_bla-bla.htseq.counts
+|     |     |...
+|     |     |-> Experimental_Condition_N
+|     |          |- ID_bla-bla.htseq.counts
+|     | - Summarized_Experiment                  
+            |- Out.RData
 ```
 
 - The md5.txt contains the md5 data for each file.
 - The Manifest folder contains the respective sample metadata in a tab separeted format.
 - The Experimental-Condition-X folder contains the respective htseq.counts data files. For example:
-
 ``` 
   Ensembl_ID.Version \t Raw_Counts
   ENSG000000003.13      25
 ```
-
+- The Summarized_Experiment folder contains the RData object.
 
 
 
