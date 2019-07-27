@@ -11,7 +11,8 @@ rPackages <- c(
   "optparse"
 )
 bioconductorPackages <- c(
-  "BiocParallel"
+  "BiocParallel",
+  "SummarizedExperiment"
 )
 
 ##Test packages

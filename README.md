@@ -50,6 +50,11 @@ The data follows this directory structure
 - The Summarized_Experiment folder contains the RData object.
 - The R directory contains the different R files.
 
+## R
+
+__requirements.R__
+- Check if the required R and Bioconductor packages are installed
+- Install the R and Bioconductor missing packages
 
 __ReadData.R__
 1. Read Experimental Data
