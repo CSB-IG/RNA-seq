@@ -49,7 +49,10 @@ The data follows this directory structure
 - The R directory contains the different R files.
 
 
-
+__ReadData.R__
+1. Read Experimental Data
+3. Read Biomart Data
+4. Merge count and annotations
 
 
 
