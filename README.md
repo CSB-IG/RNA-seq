@@ -9,7 +9,7 @@ Unified pipeline for RNA-seq data procesing:
 
 # Post-conditions
 - Obtain the normalized expression matrix.
-- The data is stored in a ``Summarized Experiment object``.
+- The data is stored in a [Summarized Experiment object](https://bioconductor.org/packages/release/bioc/vignettes/SummarizedExperiment/inst/doc/SummarizedExperiment.html).
 
 ## Data Structure
 
