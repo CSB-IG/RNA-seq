@@ -15,6 +15,8 @@ Unified pipeline for RNA-seq data procesing:
 
 The data follows this directory structure
 
+```
+The data follows this directory structure
 |--Data
      | - Raw
           |- md5.txt
