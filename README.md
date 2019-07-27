@@ -33,7 +33,9 @@ The data follows this directory structure
 |     |     |-> Experimental_Condition_N
 |     |          |- ID_bla-bla.htseq.counts
 |     | - Summarized_Experiment                  
-            |- Out.RData
+|           |- Out.RData
+|--R
+   |- ReadData.R
 ```
 
 - The md5.txt contains the md5 data for each file.
@@ -44,7 +46,7 @@ The data follows this directory structure
   ENSG000000003.13      25
 ```
 - The Summarized_Experiment folder contains the RData object.
-
+- The R directory contains the different R files.
 
 
 
