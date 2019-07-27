@@ -16,7 +16,7 @@ bioconductorPackages <- c(
 )
 
 ##Test packages
-testPackages <- function(x){
+testPackage <- function(x){
   result <- lapply(x, require, character.only = TRUE)
   result <- unlist(result)
   return(result)
