@@ -9,7 +9,7 @@ Unified pipeline for RNA-seq data procesing:
 
 # Post-conditions
 - Obtain the normalized expression matrix.
-- The data is stored in a ``Summarized Experiment object´´.
+- The data is stored in a ``Summarized Experiment object``.
 
 ## Data Structure
 
@@ -32,15 +32,16 @@ The data follows this directory structure
           |...
           |-> Experimental_Condition_N
               |- ID_bla-bla.htseq.counts
-
+```
 
 - The md5.txt contains the md5 data for each file.
 - The Manifest folder contains the respective sample metadata in a tab separeted format.
 - The Experimental-Condition-X folder contains the respective htseq.counts data files. For example:
+
 ``` 
   Ensembl_ID.Version \t Raw_Counts
   ENSG000000003.13      25
-´´´
+```
 
 
 
