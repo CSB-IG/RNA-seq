@@ -2,7 +2,7 @@
 Unified pipeline for RNA-seq data procesing:
 
 # Pre-conditions
-- The raw data files are already downloaded.
+- The raw data files are already downloaded from [GDC](https://gdc.cancer.gov).
 - The raw data is organized accorgding to the Data Structure section.
 - The raw data has been cuantified using htseq for hg38.pXX Human genome. 
 - R required packages according to respective section.
