@@ -29,10 +29,10 @@ resultBioconductor <- testPackage(bioconductorPackages)
 ##Install R Packages
 if(any(resultR == FALSE)){
   out <- lapply(
-    packages[resultR == FALSE], 
+    rPackages[resultR == FALSE], 
     install.packages
   )
-  resultR <- testPackage(packages)
+  resultR <- testPackage(rPackages)
 }
 stopifnot(resultR)
 
