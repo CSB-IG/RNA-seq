@@ -38,7 +38,8 @@ opt = parse_args(opt_parser)
 
 register(MulticoreParam(workers = opt$cores, progress = TRUE))#Linux
 
-experimentalConditions <- list.dirs(path = opt$dataDir)
+experimentalConditions <- list.dirs(path = opt$dataDir, 
+                                    recursive = FALSE)
 experimentalConditions <- gsub(
   pattern = opt$dataDir, 
   replacement = "",
@@ -58,7 +59,7 @@ getExperimentalConditionData <- function(expCondition, dataDir) {
   conditionFiles <- dir(full.names = TRUE, pattern = "*.htseq.counts",
                      path = paste(dataDir, expCondition, sep = "/"))
   countData <- lapply(conditionFiles, read.delim, sep="\t", header=F, 
-                   col.names = c("EnsemblID", "raw_counts"))
+                   col.names = c("ensembl_id", "raw_counts"))
   
   ## Check if all samples have the same size
   size <- unique(do.call(rbind, lapply(countData, dim)))
@@ -83,25 +84,29 @@ getExperimentalConditionData <- function(expCondition, dataDir) {
         x[,"raw_counts"]
       })
   )
-  targets <- data.frame(File = conditionFiles, 
-                        ID = paste(expCondition, 1:length(conditionFiles), sep = "-"))
-  colnames(countData) <- targets$ID
+  targets <- data.frame(file = conditionFiles, 
+                        "id" = paste(expCondition,
+                                   1:length(conditionFiles), 
+                                   sep = "_"), 
+                        experimetal_condition = expCondition)
+  colnames(countData) <- targets$id
   
   ##Let's change the annotation 
   genes <- do.call(rbind,
                    sapply(genes[,1], strsplit, split=".", fixed=TRUE))
-  colnames(genes) <- c("EnsemblID", "version")
+  colnames(genes) <- c("ensembl_id", "version")
+  rownames(genes) <- genes[,1]
   
   ##Save clean data
-  countData <- list(Counts = countData, Annot = genes, Targets = targets)
+  countData <- list(counts = countData, annot = genes, targets = targets)
   return(countData)
 }
 
 countDataAllConditions <- lapply(experimentalConditions, 
                                  getExperimentalConditionData, 
                                  dataDir = opt$dataDir)
-### Check all Annot
-allAnnotations <- lapply(countDataAllConditions, "[[", "Annot")
+### Check all annot
+allAnnotations <- lapply(countDataAllConditions, "[[", "annot")
 
 ##Check if the genes match positions
 genes <- do.call(
@@ -117,10 +122,10 @@ stopifnot(dim(genes) == c(size[1,1], 1))
 
 annot <- allAnnotations[[1]]
 
-targets <- lapply(countDataAllConditions, "[[", "Targets")
+targets <- lapply(countDataAllConditions, "[[", "targets")
 targets <- do.call(rbind, targets)
 
-counts <- lapply(countDataAllConditions, "[[", "Counts")
+counts <- lapply(countDataAllConditions, "[[", "counts")
 counts <- do.call(cbind, counts)
 
 rnaSeq <- SummarizedExperiment(assays=list(counts=counts),
@@ -128,4 +133,10 @@ rnaSeq <- SummarizedExperiment(assays=list(counts=counts),
 
 meta <- json2miame("data/raw/metadata.txt")
 
-rnaSeq
+if(!dir.exists("output/summarized_experiment")) { 
+  dir.create("output/summarized_experiment", recursive = TRUE)
+}
+
+save(rnaSeq, 
+     file = "output/summarized_experiment/SE_RNAseq.RData", 
+     compress = "xz")

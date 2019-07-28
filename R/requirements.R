@@ -7,10 +7,10 @@
 #############################################################
 ##Required packages  
 rPackages <- c(
-  "tidyverse",
   "optparse",
   "jsonlite"
 )
+
 bioconductorPackages <- c(
   "BiocParallel",
   "SummarizedExperiment",

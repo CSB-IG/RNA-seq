@@ -25,18 +25,18 @@ The data follows this directory structure
 |     | - raw
 |     |     |- metadata.txt
 |     |     |-> manifest
-|     |     |    |- Experimental_Condition_1.manifest
-|     |     |    |- Experimental_Condition_1.manifest
+|     |     |    |- experimentalcondition1.manifest
+|     |     |    |- experimentalcondition1.manifest
 |     |     |    ...
-|     |     |    |- Experimental_Condition_N.manifest
-|     |     |-> Experimental_Condition_1
+|     |     |    |- experimentalconditionN.manifest
+|     |     |-> experimentalcondition1
 |     |     |    |- ID_bla-bla.htseq.counts
-|     |     |-> Experimental_Condition_2
+|     |     |-> experimentalcondition2
 |     |     |    |- ID_bla-bla.htseq.counts
 |     |     |...
-|     |     |-> Experimental_Condition_N
+|     |     |-> experimentalconditionN
 |     |          |- ID_bla-bla.htseq.counts
-|     | - Summarized_Experiment                  
+|     | - summarized_experiment                  
 |           |- Out.RData
 |--R
    |- ReadData.R
@@ -68,9 +68,11 @@ __ReadData.R__
 
  - Variable and function names: camel case.
  - Column names: lower case and underscore notation.
- - Experimental condition names: camel case without underscore.
+ - Experimental condition names: lower case without underscore.
+ - Folder names: lower case with underscore. 
  - 80 characters per line.
  - Function definition: above. 
+ - Source code file name: lower case without underscore. 
  
 
 
