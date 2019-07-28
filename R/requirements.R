@@ -7,8 +7,7 @@
 #############################################################
 ##Required packages  
 rPackages <- c(
-  "tidyverse",
-  "optparse"
+    "optparse"
 )
 bioconductorPackages <- c(
   "BiocParallel",
