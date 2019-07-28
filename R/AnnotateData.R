@@ -2,13 +2,19 @@
 ##  Annotation Biomart
 ####################################################
 
-source("./requirements.R")
+source("R/requirements.R")
+tryCatch({
+  load("output/summarized_experiment/SE_RNAseq.RData")
+  }, error = function(e) {
+    stop("SummirizedExperiment object not found")
+  }
+)
 
 option_list = list(
   make_option(
     c("-b", "--biomaRt"),  
     type = "character", 
-    default = NULL, 
+    default = "www.ensembl.org", 
     help = "Ensembl host", 
     metavar = "integer"
   )
@@ -30,5 +36,9 @@ attributes <- c("ensembl_gene_id",
                 "gene_biotype")
 
 annot <- getBM(mart = ensembl, attributes = attributes)
+annot <- annot[!duplicated(annot$ensembl_gene_id), ]
+  row.names(annot) <- annot$ensembl_gene_id
+annotData <- merge(annot, rowData(rnaSeq), by = "row.names")
+rowData(rnaSeq) <- annotData
 
 
