@@ -1,6 +1,10 @@
 # IDEA
 Unified pipeline for RNA-seq data procesing:
 
+# Warning
+All scripts should be executed from `RNA-seq` (main directory).
+  - e.g. `$ Rscript ./R/ReadData.R` 
+
 # Pre-conditions
 - The raw data files are already downloaded from [GDC](https://gdc.cancer.gov).
 - The raw data is organized accorgding to the Data Structure section.
@@ -19,21 +23,20 @@ The data follows this directory structure
 The data follows this directory structure
 |--data
 |     | - raw
-|     |     |- md5.txt
 |     |     |- metadata.txt
 |     |     |-> manifest
-|     |     |    |- Experimental_Condition_1.manifest
-|     |     |    |- Experimental_Condition_1.manifest
+|     |     |    |- experimentalcondition1.manifest
+|     |     |    |- experimentalcondition1.manifest
 |     |     |    ...
-|     |     |    |- Experimental_Condition_N.manifest
-|     |     |-> Experimental_Condition_1
+|     |     |    |- experimentalconditionN.manifest
+|     |     |-> experimentalcondition1
 |     |     |    |- ID_bla-bla.htseq.counts
-|     |     |-> Experimental_Condition_2
+|     |     |-> experimentalcondition2
 |     |     |    |- ID_bla-bla.htseq.counts
 |     |     |...
-|     |     |-> Experimental_Condition_N
+|     |     |-> experimentalconditionN
 |     |          |- ID_bla-bla.htseq.counts
-|     | - Summarized_Experiment                  
+|     | - summarized_experiment                  
 |           |- Out.RData
 |--R
    |- ReadData.R
@@ -61,7 +64,16 @@ __ReadData.R__
 3. Read Biomart Data
 4. Merge count and annotations
 
+# Conventions
 
+ - Variable and function names: camel case.
+ - Column names: lower case and underscore notation.
+ - Experimental condition names: lower case without underscore.
+ - Folder names: lower case with underscore. 
+ - 80 characters per line.
+ - Function definition: above. 
+ - Source code file name: lower case without underscore. 
+ 
 
 
          
