@@ -1,7 +1,7 @@
 ####################################################
 ##  Read Data
 ####################################################
-source("requirements.R")
+source("./requirements.R")
 
 option_list = list(
   make_option(
