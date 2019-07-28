@@ -118,9 +118,9 @@ rnaSeq <- SummarizedExperiment(assays=list(counts=counts),
                      rowData=annot, colData=targets)
 
 if(!dir.exists("output/summarized_experiment")) { 
-  dir.create("output/summerized_experiment", recursive = TRUE)
+  dir.create("output/summarized_experiment", recursive = TRUE)
 }
 
 save(rnaSeq, 
-     file = "output/summerized_experiment/SE_RNAseq.RData", 
+     file = "output/summarized_experiment/SE_RNAseq.RData", 
      compress = "xz")
