@@ -36,7 +36,7 @@ The data follows this directory structure
 |     |     |...
 |     |     |-> experimentalconditionN
 |     |          |- ID_bla-bla.htseq.counts
-|     | - summarizedexperiment                  
+|     | - summarized_experiment                  
 |           |- Out.RData
 |--R
    |- ReadData.R
@@ -69,6 +69,7 @@ __ReadData.R__
  - Variable and function names: camel case.
  - Column names: lower case and underscore notation.
  - Experimental condition names: lower case without underscore.
+ - Folder names: lower case with underscore. 
  - 80 characters per line.
  - Function definition: above. 
  - Source code file name: lower case without underscore. 
