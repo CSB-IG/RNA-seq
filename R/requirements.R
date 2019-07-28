@@ -12,7 +12,8 @@ rPackages <- c(
 )
 bioconductorPackages <- c(
   "BiocParallel",
-  "SummarizedExperiment"
+  "SummarizedExperiment",
+  "biomaRt"
 )
 
 ##Test packages
