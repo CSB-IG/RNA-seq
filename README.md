@@ -17,11 +17,11 @@ The data follows this directory structure
 
 ```
 The data follows this directory structure
-|--Data
-|     | - Raw
+|--data
+|     | - raw
 |     |     |- md5.txt
 |     |     |- metadata.txt
-|     |     |-> Manifest
+|     |     |-> manifest
 |     |     |    |- Experimental_Condition_1.manifest
 |     |     |    |- Experimental_Condition_1.manifest
 |     |     |    ...
