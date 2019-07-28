@@ -1,7 +1,7 @@
 ####################################################
 ##  Read Data
 ####################################################
-source("./requirements.R")
+source("requirements.R")
 
 option_list = list(
   make_option(
@@ -98,6 +98,7 @@ genes <- do.call(
 )
 genes <- t(unique(t(genes)))
 message("Checking that genes match positions in all conditions.")
+size <- unique(do.call(rbind, lapply(allAnnotations, dim)))
 stopifnot(dim(genes) == c(size[1,1], 1))
 
 annot <- allAnnotations[[1]]
