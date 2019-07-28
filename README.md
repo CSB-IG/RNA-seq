@@ -68,8 +68,10 @@ __ReadData.R__
 
  - Variable and function names: camel case.
  - Column names: lower case and underscore notation.
+ - Experimental condition names: camel case without underscore.
  - 80 characters per line.
  - Function definition: above. 
+ 
 
 
          
