@@ -116,4 +116,11 @@ counts <- do.call(cbind, counts)
 
 rnaSeq <- SummarizedExperiment(assays=list(counts=counts),
                      rowData=annot, colData=targets)
-rnaSeq
+
+if(!dir.exists("output/summarized_experiment")) { 
+  dir.create("output/summerized_experiment", recursive = TRUE)
+}
+
+save(rnaSeq, 
+     file = "output/summerized_experiment/SE_RNAseq.RData", 
+     compress = "xz")
