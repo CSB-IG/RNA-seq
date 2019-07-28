@@ -1,6 +1,10 @@
 # IDEA
 Unified pipeline for RNA-seq data procesing:
 
+# Warning
+All scripts should be executed from `RNA-seq` (main directory).
+  - e.g. `$ Rscript ./R/ReadData.R` 
+
 # Pre-conditions
 - The raw data files are already downloaded from [GDC](https://gdc.cancer.gov).
 - The raw data is organized accorgding to the Data Structure section.
