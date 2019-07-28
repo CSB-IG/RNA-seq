@@ -1,0 +1,8 @@
+{
+ "contact" : "ehernandez@inmegen.gob.mx",
+ "title" : "RNA-seq experiment", 
+ "lab" : "INMEGEN/CSB-IG",
+ "name" : "Counts",
+ "url" : "https://github.com/CSB-IG/RNA-seq",
+ "abstract" : "RNA-seq trainnig"
+}

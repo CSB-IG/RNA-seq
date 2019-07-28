@@ -3,6 +3,19 @@
 ####################################################
 source("R/requirements.R")
 
+json2miame <- function(fpath){
+  meta <- fromJSON(fpath)
+  obj <- MIAME(
+    contact = meta$contact,
+    title = meta$title, 
+    lab = meta$lab,
+    name = meta$name,
+    url = meta$url,
+    abstract = meta$abstract
+  )
+  return(obj)
+}
+
 option_list = list(
   make_option(
     c("-c", "--cores"),  
@@ -19,6 +32,7 @@ option_list = list(
     metavar = "character"
   )
 )
+
 opt_parser = OptionParser(option_list = option_list)
 opt = parse_args(opt_parser)
 
@@ -116,6 +130,8 @@ counts <- do.call(cbind, counts)
 
 rnaSeq <- SummarizedExperiment(assays=list(counts=counts),
                      rowData=annot, colData=targets)
+
+meta <- json2miame("data/raw/metadata.txt")
 
 if(!dir.exists("output/summarized_experiment")) { 
   dir.create("output/summarized_experiment", recursive = TRUE)

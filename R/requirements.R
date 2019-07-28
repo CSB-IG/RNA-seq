@@ -7,12 +7,15 @@
 #############################################################
 ##Required packages  
 rPackages <- c(
-    "optparse"
+  "optparse",
+  "jsonlite"
 )
+
 bioconductorPackages <- c(
   "BiocParallel",
   "SummarizedExperiment",
-  "biomaRt"
+  "biomaRt",
+  "Biobase"
 )
 
 ##Test packages
