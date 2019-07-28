@@ -8,12 +8,14 @@
 ##Required packages  
 rPackages <- c(
   "tidyverse",
-  "optparse"
+  "optparse",
+  "jsonlite"
 )
 bioconductorPackages <- c(
   "BiocParallel",
   "SummarizedExperiment",
-  "biomaRt"
+  "biomaRt",
+  "Biobase"
 )
 
 ##Test packages

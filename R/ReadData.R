@@ -1,7 +1,20 @@
 ####################################################
 ##  Read Data
 ####################################################
-source("requirements.R")
+source("R/requirements.R")
+
+json2miame <- function(fpath){
+  meta <- fromJSON(fpath)
+  obj <- MIAME(
+    contact = meta$contact,
+    title = meta$title, 
+    lab = meta$lab,
+    name = meta$name,
+    url = meta$url,
+    abstract = meta$abstract
+  )
+  return(obj)
+}
 
 option_list = list(
   make_option(
@@ -19,6 +32,7 @@ option_list = list(
     metavar = "character"
   )
 )
+
 opt_parser = OptionParser(option_list = option_list)
 opt = parse_args(opt_parser)
 
@@ -111,12 +125,7 @@ counts <- do.call(cbind, counts)
 
 rnaSeq <- SummarizedExperiment(assays=list(counts=counts),
                      rowData=annot, colData=targets)
-metadata(rnaSeq) <- list(RnaSeq=MIAME(
-  contact = "DianaGarcia@inmegen.edu.mx",
-  title = "RNA-seq experiment", 
-  lab = "INMEGEN/CSB-IG",
-  name = "Counts",
-  url = "https://github.com/CSB-IG/RNA-seq",
-  abstract = "RNA-seq trainnig"
-))
+
+meta <- json2miame("data/raw/metadata.txt")
+
 rnaSeq
