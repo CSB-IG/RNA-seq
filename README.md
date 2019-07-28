@@ -23,7 +23,6 @@ The data follows this directory structure
 The data follows this directory structure
 |--data
 |     | - raw
-|     |     |- md5.txt
 |     |     |- metadata.txt
 |     |     |-> manifest
 |     |     |    |- Experimental_Condition_1.manifest
@@ -65,7 +64,12 @@ __ReadData.R__
 3. Read Biomart Data
 4. Merge count and annotations
 
+# Conventions
 
+ - Variable and function names: camel case.
+ - Column names: lower case and underscore notation.
+ - 80 characters per line.
+ - Function definition: above. 
 
 
          
