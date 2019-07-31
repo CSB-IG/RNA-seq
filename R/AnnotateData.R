@@ -37,8 +37,11 @@ attributes <- c("ensembl_gene_id",
 
 annot <- getBM(mart = ensembl, attributes = attributes)
 annot <- annot[!duplicated(annot$ensembl_gene_id), ]
-  row.names(annot) <- annot$ensembl_gene_id
+row.names(annot) <- annot$ensembl_gene_id
+inter <- intersect(rnaSeq@NAMES, annot$ensembl_gene_id)
+rnaSeq <- rnaSeq[inter,]
+annot <- annot[inter,]
 annotData <- merge(annot, rowData(rnaSeq), by = "row.names")
+rownames(annotData) <- annotData$ensembl_gene_id
 rowData(rnaSeq) <- annotData
-
 
