@@ -1,6 +1,9 @@
 # IDEA
 Unified pipeline for RNA-seq data procesing:
 
+# Contribuing
+Please check our [Contribuing](https://github.com/CSB-IG/RNA-seq/blob/master/CONTRIBUTING.md) page.
+
 # Warning
 All scripts should be executed from `RNA-seq` (main directory).
   - e.g. `$ Rscript ./R/ReadData.R` 
